@@ -1,1 +1,21 @@
-<h1>this is the index placeholder</h1>
+
+<div class="container">
+<h1>Skill Survey</h1>
+
+<table class="table">
+	<tr>
+		<td>Skill</td>
+		<td>Description</td>
+		<td>Admin Items</td>
+	</tr>
+<% @skills.each do |skill| %>
+	<tr>
+		<td><%= skill.name %></td>
+		<td><%= skill.description %></td>
+		<td><%= link_to("Edit", edit_skill_path(skill), class: "btn btn-default") %>
+		<%= link_to("Delete", skill, class: "btn btn-default", method: :delete) %></td>
+	</tr>
+<% end %>
+</table>
+</div>
+

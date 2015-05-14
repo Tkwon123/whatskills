@@ -1,1 +1,17 @@
-<h1>this is the show placeholder</h1>
+<div class="col-md-8 col-md-offset-2">
+	<div class="panel-default">
+		<div class="panel-heading">
+			<%= image_tag @skill.image.url(:medium) %>
+			<h1> <%= @skill.name %> </h1>
+		</div>
+		<div class="panel-body">
+			<p> <%= @skill.description %> </p>
+		</div>
+
+		<%= link_to "Edit", edit_skill_path(@skill) %>
+		<%= link_to "Back", root_path %>
+
+	</div>
+</div>
+
+
