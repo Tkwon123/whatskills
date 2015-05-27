@@ -5,6 +5,22 @@
 			<div class="panel-body">
 				<h2><%= skill.name %> </h2>
 				<p><%= skill.description %> <p>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-md-6">
+						<p>Have you liked this?: <%= skill.liked_by @user %></p>
+					</div>
+					<div class="col-md 6">
+						<div class="btn-group pull-center">
+							<%= link_to daps_skill_path(skill), method: :put, class: "btn btn-default" do %>
+								<span class="glyphicon glyphicon-heart"></span> 
+								<%= skill.votes_for.size %>		
+							<% end %>
+						</div>
+
+					</div>
+				</div>
+			</div>
 			</div>
 		</div>
 	<% end %>

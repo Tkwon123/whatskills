@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root 'skills#index'
   
   devise_for :users
-  resources :skills
+  resources :skills do
+  	member do
+  		put "daps", to: "skills#upvote"
+  	end
+  end
 
 end

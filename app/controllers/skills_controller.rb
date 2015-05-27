@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-	before_action :set_skill, only:[:show, :edit, :update, :destroy]
+	before_action :set_skill, only:[:show, :edit, :update, :destroy, :upvote, :downvote]
 
 	def index
 		@skills = Skill.all
@@ -33,6 +33,16 @@ class SkillsController < ApplicationController
 	def destroy
 		@skill.destroy
 		redirect_to 'index'
+	end
+
+	def upvote
+		@skill.liked_by current_user
+		redirect_to :back
+	end
+
+	def downvote
+		@skill.downvoted_by current_user
+		redirect_to :back
 	end
 
 private
