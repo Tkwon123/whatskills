@@ -1,21 +1,12 @@
-
-<div class="container">
-<h1>Skill Survey</h1>
-
-<table class="table">
-	<tr>
-		<td>Skill</td>
-		<td>Description</td>
-		<td>Admin Items</td>
-	</tr>
-<% @skills.each do |skill| %>
-	<tr>
-		<td><%= skill.name %></td>
-		<td><%= skill.description %></td>
-		<td><%= link_to("Edit", edit_skill_path(skill), class: "btn btn-default") %>
-		<%= link_to("Delete", skill, class: "btn btn-default", method: :delete) %></td>
-	</tr>
-<% end %>
-</table>
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+	<% @skills.each do |skill| %>
+		<div class="box panel panel-default">
+			<%= link_to (image_tag skill.image), skill %>
+			<div class="panel-body">
+				<h2><%= skill.name %> </h2>
+				<p><%= skill.description %> <p>
+			</div>
+		</div>
+	<% end %>
 </div>
 
