@@ -1,12 +1,15 @@
 <div class="col-md-8 col-md-offset-2">
 	<div class="panel-default">
-		<div class="panel-heading">
-			<%= image_tag @skill.image.url(:medium) %>
-			<h1> <%= @skill.name %> </h1>
+		<div class="panel-header">
+
 		</div>
 		<div class="panel-body">
-			<p> <%= @skill.description %> </p>
-		</div>
+			<div class="panel-image">
+				<%= image_tag @skill.image.url(:medium) %>
+			</div>
+				<h1> <%= @skill.name %> </h1>
+				<p> <%= @skill.description %> </p>	
+			</div>
 		<div class="box panel panel-default">
 			<%= simple_form_for [@skill, Comment.new] do |f| %>
 				<%= f.input :body, label: "What do you really think?" %>

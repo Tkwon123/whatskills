@@ -1,7 +1,7 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 	<% @skills.each do |skill| %>
 		<div class="box panel panel-default">
-			<div id="image-container">
+			<div class="image-container">
 				<%= link_to (image_tag skill.image), skill %>
 			</div>
 			</h1>
@@ -11,7 +11,7 @@
 			<div class="panel-footer">
 				<div class="row">
 					<div class="col-md-6">
-						<p>Have you liked this?: <%= skill.liked_by @user %></p>
+						<p>Have you liked this?: <%= skill.liked_by current_user %></p>
 					</div>
 					<div class="col-md 6">
 						<div class="btn-group pull-center">

@@ -5,9 +5,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#image-container {
+.image-container {
   padding: 10px 10px;
 }
+
+.panel-image {
+    img { max-width: 80%;
+    width: 80%;
+    display: block;
+    margin: 0 auto; } 
+  }
 
 #masonry-container {
   margin: 0 auto;
