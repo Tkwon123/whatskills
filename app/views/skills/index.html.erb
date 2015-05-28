@@ -1,7 +1,10 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 	<% @skills.each do |skill| %>
 		<div class="box panel panel-default">
-			<%= link_to (image_tag skill.image), skill %>
+			<div id="image-container">
+				<%= link_to (image_tag skill.image), skill %>
+			</div>
+			</h1>
 			<div class="panel-body">
 				<h2><%= skill.name %> </h2>
 				<p><%= skill.description %> <p>
@@ -17,7 +20,6 @@
 								<%= skill.votes_for.size %>		
 							<% end %>
 						</div>
-
 					</div>
 				</div>
 			</div>

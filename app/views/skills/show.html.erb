@@ -7,10 +7,32 @@
 		<div class="panel-body">
 			<p> <%= @skill.description %> </p>
 		</div>
+		<div class="box panel panel-default">
+			<%= simple_form_for [@skill, Comment.new] do |f| %>
+				<%= f.input :body, label: "What do you really think?" %>
+				<%= f.submit "Publish!" %>
+			<% end %>
+		</div>
+		<table class="table table-striped">
+			<tbody>
+				<th>Comments:</th>
+				<th>Submitted by:</th>
+				<% @skill.comments.each do |comment| %>
+				<tr>
+					<td>
+						 <%= comment.body %> 
+					</td>
+					<td>
+						 <%= "Submitted by #{comment.user.email}" %>
+					</td>
+				</tr>
+						
+				<% end %>
+			</tbody>
 
-		<%= link_to "Edit", edit_skill_path(@skill) %>
-		<%= link_to "Back", root_path %>
-
+		</table>
+			<%= link_to "Edit", edit_skill_path(@skill) %>
+			<%= link_to "Back", root_path %>
 	</div>
 </div>
 

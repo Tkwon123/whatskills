@@ -1,5 +1,6 @@
 class Skill < ActiveRecord::Base
 	belongs_to :user
+	has_many :comments
 	acts_as_votable
 	#related to paperclip image
 	has_attached_file :image, styles: { :medium => "300x300>" }

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   	member do
   		put "daps", to: "skills#upvote"
   	end
+  resources :comments
   end
 
 end
