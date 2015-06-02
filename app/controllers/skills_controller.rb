@@ -36,8 +36,15 @@ class SkillsController < ApplicationController
 	end
 
 	def upvote
-		@skill.liked_by current_user
-		redirect_to :back
+		if current_user.free_votes > 0
+			@skill.liked_by current_user
+			current_user.decrement!(:free_votes)
+			flash[:error] = current_user.free_votes
+			redirect_to :back
+		else
+			flash[:error] = "No votes!"
+			redirect_to :back
+		end
 	end
 
 	def downvote
