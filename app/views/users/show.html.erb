@@ -1,0 +1,29 @@
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+	<% @skills.each do |skill| %>
+		<div class="box panel panel-default">
+			<div class="image-container">
+				<%= link_to (image_tag skill.image), skill %>
+			</div>
+			</h1>
+			<div class="panel-body">
+				<h2><%= skill.name %> </h2>
+				<p><%= skill.description %> <p>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-md-6">
+						<p>Have you liked this?: <%= skill.liked_by current_user %></p>
+					</div>
+					<div class="col-md 6">
+						<div class="btn-group pull-center">
+							<%= link_to daps_skill_path(skill), method: :put, class: "btn btn-default" do %>
+								<span class="glyphicon glyphicon-heart"></span> 
+								<%= skill.votes_for.size %>		
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	<% end %>
+</div>

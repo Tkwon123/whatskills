@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'skills#index'
-  
+  root 'users#index'
   devise_for :users
+  get 'users/:id', to: "users#show", as: "user_skill"
+  #resources :users
   resources :skills do
   	member do
   		put "daps", to: "skills#upvote"

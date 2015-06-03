@@ -6,11 +6,11 @@ class SkillsController < ApplicationController
 	end
 
 	def new
-		@skill = Skill.new
+		@skill = current_user.skills.new
 	end
 
 	def create
-		@skill = Skill.new(skill_params)
+		@skill = current_user.skills.new(skill_params)
 		if @skill.save
 			redirect_to @skill
 		else

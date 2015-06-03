@@ -1,0 +1,30 @@
+<div class="jumbotron">
+	
+	<h1>
+		Hello World
+		<br>
+		<small>Lorem ipsum dolor sit amet</small>
+	</h1>
+
+</div>
+
+<table class="table table-hover table-striped">
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>Email</th>
+		<th>Skill Count</th>
+		<th>Link</th>
+	</tr>
+	</thead>
+<% @users.each do |user| %>
+	<tr>
+		<td><%= user.id %> </td>
+		<td><%= user.email %></td>
+		<td><%= user.skills.count %></td>
+		<td><%= link_to "Profile", user_skill_path(user) %></td>
+		<br>
+	</tr>
+<% end %>
+
+</table>
