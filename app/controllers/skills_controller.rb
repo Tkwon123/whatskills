@@ -1,18 +1,20 @@
 class SkillsController < ApplicationController
+	before_action :set_user
 	before_action :set_skill, only:[:show, :edit, :update, :destroy, :upvote, :downvote]
-
 	def index
-		@skills = Skill.all
+		@skills = @user.skills
 	end
 
 	def new
-		@skill = current_user.skills.new
+		@user = User.find(params[:user_id])
+		@skill = @user.skills.new
 	end
 
 	def create
-		@skill = current_user.skills.new(skill_params)
+		@user = User.find(params[:user_id])
+		@skill = @user.skills.create(skill_params)
 		if @skill.save
-			redirect_to @skill
+			redirect_to @user
 		else
 			render 'new'
 		end
@@ -54,13 +56,16 @@ class SkillsController < ApplicationController
 
 private
 
-	def set_skill
+	def set_user
 		@user = User.find(params[:user_id])
-		@skill = @user.skills.find(:id)
+	end
+
+	def set_skill
+		@skill = @user.skills.find(params[:id])
 	end
 
 	def skill_params
-		params.require(:skill).permit(:name,:description, :image)
+		params.require(:skill).permit(:name, :description, :image)
 	end
 
 end

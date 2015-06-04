@@ -9,7 +9,7 @@
 			<ul class="nav navbar-nav">
 			<% if user_signed_in? %>
 				<li class= "nav navbar-text"><%= "Available Votes: #{current_user.free_votes}" %></li>
-				<li><%= link_to "New skill", new_skill_path %></li>
+				<li><%= link_to "New skill", new_user_skill_path(current_user) %></li>
 				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 
 			<% else %>

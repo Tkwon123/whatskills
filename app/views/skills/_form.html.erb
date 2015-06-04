@@ -5,7 +5,7 @@
 				<h1>New Skill</h1>
 			</div>
 			<div class="panel-body">
-				<%= simple_form_for @skill,  html: {multipart: true}  do |f| %>
+				<%= simple_form_for [@user, @skill],  html: {multipart: true}  do |f| %>
 					<%= f.input :name %>
 					<%= f.input :description %>
 					<%= f.input :image %>
