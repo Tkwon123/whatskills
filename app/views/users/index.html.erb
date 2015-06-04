@@ -1,34 +1,36 @@
-<div class="jumbotron">
 	
-	<h1>
-		Hello World
-		<br>
-		<small>Lorem ipsum dolor sit amet</small>
-	</h1>
-
-</div>
-
+<% if !user_signed_in? %>
+	<div class="jumbotron">
+		<div class="row">
+			<div class="center">
+				<h1>What Skills?</h1>
+				<p>... Be more like, "What skills!" Find what you need here! </p>
+				<p><a class="btn btn-primary btn-lg" href="#" role="button">Sign up today!</a></p>
+			</div>
+		</div>
+	</div>
+<% end %>
 <table class="table table-hover table-striped">
 	<thead>
-	<tr>
-		<th>ID</th>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>Email</th>
-		<th>Skill Count</th>
-		<th>Link</th>
-	</tr>
+		<tr>
+			<th>ID</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Skill Count</th>
+			<th>Link</th>
+		</tr>
 	</thead>
-<% @users.each do |user| %>
-	<tr>
-		<td><%= user.id %> </td>
-		<td><%= user.first_name %> </td>
-		<td><%= user.last_name %> </td>
-		<td><%= user.email %></td>
-		<td><%= user.skills.count %></td>
-		<td><%= link_to "Profile", user_skill_path(user) %></td>
-		<br>
-	</tr>
-<% end %>
-
+		<tbody>
+			<% @users.each do |user| %>
+				<tr>
+					<td><%= user.id %> </td>
+					<td><%= user.first_name %> </td>
+					<td><%= user.last_name %> </td>
+					<td><%= user.email %></td>
+					<td><%= user.skills.count %></td>
+					<td><%= link_to "Profile", user_skill_path(user) %></td>
+				</tr>
+			<% end %>
+		</tbody>
 </table>
