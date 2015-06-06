@@ -19,14 +19,14 @@
 		<table class="table table-striped">
 			<tbody>
 				<th>Comments:</th>
-				<th>Submitted by:</th>
+				<th>Says:</th>
 				<% @skill.comments.each do |comment| %>
 				<tr>
 					<td>
 						 <%= comment.body %> 
 					</td>
 					<td>
-						 <%= "Submitted by #{comment.user.email}" %>
+						 <%= "#{comment.user.first_name} #{comment.user.last_name}" %>
 					</td>
 				</tr>
 						

@@ -1,6 +1,8 @@
 class SkillsController < ApplicationController
 	before_action :set_user
 	before_action :set_skill, only:[:show, :edit, :update, :destroy, :upvote, :downvote]
+	before_action :authenticate_user!
+
 	def index
 		@skills = @user.skills
 	end
@@ -38,14 +40,17 @@ class SkillsController < ApplicationController
 	end
 
 	def upvote
-		if current_user.free_votes > 0
+		if current_user.free_votes = 0
+			flash[:error] = "Sorry, you're out of daps!" #take out later
+			redirect_to :back
+		elsif (current_user.voted_for? @skill)
+			flash[:error] = "You've already given daps! Move on... " #take out later
+			redirect_to :back
+		else 
 			@skill.liked_by current_user
 			current_user.decrement!(:free_votes)
-			flash[:error] = current_user.free_votes
 			redirect_to :back
-		else
-			flash[:error] = "No votes!"
-			redirect_to :back
+
 		end
 	end
 

@@ -11,7 +11,6 @@
 				<li class= "nav navbar-text"><%= "Available Votes: #{current_user.free_votes}" %></li>
 				<li><%= link_to "New skill", new_user_skill_path(current_user) %></li>
 				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-
 			<% else %>
 				<li><%= link_to "New User", new_user_registration_path %></li>
 				<li><%= link_to "Sign In", new_user_session_path %></li>
