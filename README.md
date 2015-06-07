@@ -1,16 +1,23 @@
 #What Skills!
 
+
 ##The Problem
-Understanding people and skills becomes an unjust and impossible task within large organizations. 
-  - How can you survey the strenth of skills within the business? 
-  - How do you identify the right individual with the right skills? 
-  - How can you even trust those skills when I find that person? 
+
+Talent management systems rely on the feedback of central authority (managers, supervisors, etc.) who are suseptible to favortism, oversight (lack of technical skill and day-to-day insight), and other conflicts of interest. Modern centralized performance management ambitiously strives to create a wholistic view of an individual over months to upwards a year yet inevitably falls short. Greater insight into skills, performance, and individual outlook can be discovered by de-centralizing the review process and placing greater trust into a decentralied network. 
 
 ##The Solution
-Enable accountability and transparency of skills across distributed networks of people through a commodized system of encorsements. Build user profiles and give eachother "daps" (or votes) towards specific skills. Endorsements are precious and limited in supply (default set to '3') so choose carefully; the point is to brush off all the noise and nepotism to create a trusted network of skills. 
+
+Bestow greater trust in your talent management system by creating a simplified and de-centralied system of reviews and recommendations. Build user profiles and give eachother "daps" towards specific skills. Endorsements are precious and limited in supply so choose carefully (the default set to '3'); there shall be no flooding of endorsements in this market! 
+
+Use this tool to answer the following types of questions. How can you...
+
+  - survey the strenth of skills within the business? 
+  - identify the right individual with the right skills? 
+  - trust those recommendations and skills?
 
 ##Usage
-Create a user profile and build whatever skill you think you have. Provide accoldates to others who you think are the beez kneez. Feel free to provide comments as well if you need to contextualize any of your thoughts. 
+
+Create a user profile and build a collection of your skills (think of it as your resume). Provide accoldates to others who you think are the beez kneez, and feel free to provide comments as well if you need to contextualize any of your thoughts. 
 
 ##Implementation 
 Local deployment is easy: 
@@ -19,4 +26,14 @@ Local deployment is easy:
 git clone https://github.com/Tkwon123/whatskills/
 bundle install
 rails s 
+```
+
+Or if you want your own implementation via heroku
+```
+git clone https://github.com/Tkwon123/whatskills/
+cd what_skills
+bundle install
+heroku create
+git push heroku master
+rake db:migrate
 ```

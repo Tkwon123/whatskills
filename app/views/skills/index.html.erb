@@ -1,5 +1,13 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-	<% @skills.each do |skill| %>
+	<% if @skills.empty? %>
+		<div class="center">
+			<h3>*Chirp* *Chirp*</h3>
+			<p>Nothing to see here... Add some skills to get started</p>
+		</div>
+
+	<% else %> 
+
+	<%  @skills.each do |skill| %>
 		<div class="box panel panel-default">
 			<div class="image-container">
 				<%= link_to (image_tag skill.image), user_skill_path(@user, skill)%>
@@ -31,6 +39,7 @@
 			</div>
 			</div>
 		</div>
+	<% end %>
 	<% end %>
 </div>
 
