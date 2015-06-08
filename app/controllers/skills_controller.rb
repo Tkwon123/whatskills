@@ -8,15 +8,14 @@ class SkillsController < ApplicationController
 	end
 
 	def new
-		@user = User.find(params[:user_id])
-		@skill = @user.skills.new
+		@skill = current_user.skills.new
 	end
 
 	def create
-		@user = User.find(params[:user_id])
-		@skill = @user.skills.create(skill_params)
+		@skill = current_user.skills.new(skill_params)
+
 		if @skill.save
-			redirect_to @user
+			redirect_to user_skill_path(@user, @skill)
 		else
 			render 'new'
 		end
