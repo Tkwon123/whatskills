@@ -35,7 +35,7 @@ class SkillsController < ApplicationController
 
 	def destroy
 		@skill.destroy
-		redirect_to 'index'
+		redirect_to user_skills_path
 	end
 
 	def upvote
