@@ -39,17 +39,16 @@ class SkillsController < ApplicationController
 	end
 
 	def upvote
-		if current_user.free_votes = 0
-			flash[:error] = "Sorry, you're out of daps!" #take out later
+		if current_user.free_votes == 0
+			flash[:error] = "Sorry, you're out of daps!"
 			redirect_to :back
 		elsif (current_user.voted_for? @skill)
-			flash[:error] = "You've already given daps! Move on... " #take out later
+			flash[:error] = "You've already given daps! Move on... "
 			redirect_to :back
 		else 
 			@skill.liked_by current_user
 			current_user.decrement!(:free_votes)
 			redirect_to :back
-
 		end
 	end
 

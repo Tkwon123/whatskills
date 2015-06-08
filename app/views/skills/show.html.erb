@@ -10,20 +10,24 @@
 				<h1> <%= @skill.name %> </h1>
 				<p> <%= @skill.description %> </p>	
 			</div>
-		<div class="box panel panel-default">
 			<%= simple_form_for [@user, @skill, Comment.new] do |f| %>
-				<%= f.input :body, label: "What do you really think?" %>
-				<%= f.submit "Publish!" %>
+				<%= f.input :body, label: "What do you really think?"%>
+				<%= f.submit "Publish!", class: "btn btn-default" %>
 			<% end %>
-		</div>
 		<table class="table table-striped">
 			<tbody>
+				<br>
 				<th>Comments:</th>
 				<th>Says:</th>
+				<% if @skill.comments.empty? %> 
+					<tr>
+						<td> Nothing to see over here... </td>
+					</tr>
+				<% end %>
 				<% @skill.comments.each do |comment| %>
 				<tr>
 					<td>
-						 <%= comment.body %> 
+						<%= comment.body %> 
 					</td>
 					<td>
 						 <%= "#{comment.user.first_name} #{comment.user.last_name}" %>
@@ -34,8 +38,8 @@
 			</tbody>
 
 		</table>
-			<%= link_to "Edit", edit_user_skill_path(@user,@skill) %>
-			<%= link_to "Back", root_path %>
+			<%= link_to "Edit", edit_user_skill_path(@user,@skill), class: "btn btn-default" %>
+			<%= link_to "Back", root_path, class: "btn btn-default" %>
 	</div>
 </div>
 
