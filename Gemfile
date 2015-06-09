@@ -16,6 +16,7 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'masonry-rails'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'byebug'
