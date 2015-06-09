@@ -81,8 +81,8 @@ Rails.application.configure do
   :storage => :s3,
   :s3_credentials => {
     :bucket => ENV['whatskills'],
-    :access_key_id => ENV['AKIAIYFFIKRLZMIJEQNA'],
-    :secret_access_key => ENV['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']
+    :access_key_id => ENV['AKIAING2EWWTQ4DF5BWA'],
+    :secret_access_key => ENV['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']
   }
 }
 
