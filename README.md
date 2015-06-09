@@ -28,7 +28,8 @@ bundle install
 rails s 
 ```
 
-Or if you want your own implementation via heroku
+Or if you want your own implementation via heroku:
+
 ```
 git clone https://github.com/Tkwon123/whatskills/
 cd what_skills
@@ -37,3 +38,13 @@ heroku create
 git push heroku master
 rake db:migrate
 ```
+
+Note that you will need to set up your own Amazon E3 instance to allow paperclip to work properly on Heroku. Simply use these commands with the credentials offered in your AWS permissions:
+
+```
+$ heroku config:set S3_BUCKET_NAME=your_bucket_name
+$ heroku config:set AWS_ACCESS_KEY_ID=your_access_key_id
+$ heroku config:set AWS_SECRET_ACCESS_KEY=your_secret_access_key
+```
+
+More instructions to do this can be found [here](https://devcenter.heroku.com/articles/paperclip-s3).
